@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe Meta Ads · Montesierpe Casa Hacienda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rojo: #6B1A1A;
+    --rojo-oscuro: #6C180E;
+    --oro: #9A7C50;
+    --cal: #F0ECE0;
+    --ladrillo: #C4784A;
+    --verde: #4A5830;
+    --cerro: #8A7860;
+    --noche: #1E1408;
+    --azul: #1C3D82;
+    --cal-dark: #E4DECE;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cal);
+    color: var(--noche);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--noche);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--rojo) 0%, var(--oro) 50%, var(--ladrillo) 100%);
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 40px 56px 36px;
+    gap: 24px;
+  }
+
+  .header-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .brand-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--oro);
+  }
+
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cal);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+  }
+
+  .brand-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--cerro);
+    margin-top: 2px;
+  }
+
+  .header-meta {
+    text-align: right;
+  }
+
+  .meta-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cerro);
+    margin-bottom: 4px;
+  }
+
+  .meta-period {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--cal);
+    letter-spacing: 0.03em;
+  }
+
+  .meta-platform {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 5px 12px;
+  }
+
+  .meta-platform svg { flex-shrink: 0; }
+
+  .meta-platform span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cal);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── HERO KPIs ── */
+  .hero {
+    background: var(--rojo);
+    padding: 52px 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(154,124,80,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(240,236,224,0.6);
+    margin-bottom: 32px;
+  }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(240,236,224,0.1);
+    border: 1px solid rgba(240,236,224,0.1);
+  }
+
+  .kpi-card {
+    background: transparent;
+    padding: 32px 28px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .kpi-card:hover {
+    background: rgba(240,236,224,0.05);
+  }
+
+  .kpi-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(240,236,224,0.5);
+    margin-bottom: 12px;
+  }
+
+  .kpi-value {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--cal);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .kpi-value .kpi-unit {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 2px;
+  }
+
+  .kpi-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgba(240,236,224,0.55);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  .kpi-badge {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 10px;
+    background: rgba(154,124,80,0.25);
+    border: 1px solid rgba(154,124,80,0.4);
+    border-radius: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--oro);
+  }
+
+  .hero-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(154,124,80,0.4), transparent);
+    margin: 40px 0 0;
+  }
+
+  /* ── SECTION SHELL ── */
+  .section {
+    padding: 56px 56px;
+  }
+
+  .section-alt {
+    background: var(--cal-dark);
+  }
+
+  .section-dark {
+    background: var(--noche);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(107,26,26,0.15);
+  }
+
+  .section-dark .section-header {
+    border-bottom-color: rgba(240,236,224,0.1);
+  }
+
+  .section-num {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--rojo);
+    letter-spacing: 0.15em;
+  }
+
+  .section-dark .section-num { color: var(--oro); }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--noche);
+    letter-spacing: 0.04em;
+  }
+
+  .section-dark .section-title { color: var(--cal); }
+
+  /* ── DAILY SPEND CHART ── */
+  .chart-container {
+    background: white;
+    border: 1px solid rgba(107,26,26,0.1);
+    border-radius: 2px;
+    padding: 32px 32px 20px;
+    position: relative;
+  }
+
+  .chart-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cerro);
+    margin-bottom: 24px;
+  }
+
+  #spendChart {
+    width: 100%;
+    height: 200px;
+    display: block;
+  }
+
+  .chart-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--cerro);
+    margin-top: 16px;
+    text-align: right;
+  }
+
+  /* ── METRICS GRID ── */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .metric-card {
+    background: white;
+    border: 1px solid rgba(107,26,26,0.1);
+    border-radius: 2px;
+    padding: 24px 24px;
+  }
+
+  .metric-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cerro);
+    margin-bottom: 10px;
+  }
+
+  .metric-value {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--noche);
+    line-height: 1;
+  }
+
+  .metric-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--cerro);
+    margin-top: 6px;
+  }
+
+  .metric-bar-wrap {
+    margin-top: 14px;
+    height: 3px;
+    background: var(--cal-dark);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .metric-bar {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--rojo);
+    transition: width 1s ease;
+  }
+
+  /* ── CTR BENCHMARK ── */
+  .benchmark-card {
+    background: white;
+    border: 1px solid rgba(107,26,26,0.1);
+    border-radius: 2px;
+    padding: 28px 28px;
+  }
+
+  .benchmark-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cerro);
+    margin-bottom: 20px;
+  }
+
+  .benchmark-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .benchmark-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: var(--noche);
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  .benchmark-bar-wrap {
+    flex: 1;
+    height: 8px;
+    background: var(--cal-dark);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .benchmark-bar {
+    height: 100%;
+    border-radius: 1px;
+    transition: width 1.2s ease;
+  }
+
+  .benchmark-bar.avg { background: var(--cerro); }
+  .benchmark-bar.good { background: var(--oro); }
+  .benchmark-bar.excellent { background: var(--verde); }
+  .benchmark-bar.montesierpe { background: var(--rojo); }
+
+  .benchmark-pct {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    width: 52px;
+    text-align: right;
+    color: var(--noche);
+  }
+
+  .benchmark-pct.highlight { color: var(--rojo); }
+
+  /* ── GEO & DEMO ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .geo-card, .demo-card {
+    background: rgba(240,236,224,0.06);
+    border: 1px solid rgba(240,236,224,0.1);
+    border-radius: 2px;
+    padding: 28px;
+  }
+
+  .geo-card .card-title, .demo-card .card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-bottom: 24px;
+  }
+
+  .geo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .geo-region {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--cal);
+    width: 64px;
+    flex-shrink: 0;
+  }
+
+  .geo-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: rgba(240,236,224,0.1);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .geo-bar {
+    height: 100%;
+    border-radius: 1px;
+    background: linear-gradient(90deg, var(--rojo), var(--ladrillo));
+    transition: width 1.2s ease;
+  }
+
+  .geo-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cal);
+    width: 48px;
+    text-align: right;
+  }
+
+  .geo-pct {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: var(--cerro);
+    width: 32px;
+    text-align: right;
+  }
+
+  /* Demo bars */
+  .demo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .demo-age {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cal);
+    width: 48px;
+    flex-shrink: 0;
+  }
+
+  .demo-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: rgba(240,236,224,0.1);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .demo-bar {
+    height: 100%;
+    border-radius: 1px;
+    transition: width 1.2s ease;
+  }
+
+  .demo-bar.top { background: var(--oro); }
+  .demo-bar.mid { background: rgba(154,124,80,0.55); }
+  .demo-bar.low { background: rgba(154,124,80,0.25); }
+
+  .demo-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--oro);
+    margin-left: 4px;
+    font-size: 9px;
+  }
+
+  /* ── CAMPAIGN COMPARE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 1px solid rgba(107,26,26,0.1);
+  }
+
+  .compare-table thead tr {
+    background: var(--noche);
+  }
+
+  .compare-table thead th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cerro);
+    padding: 14px 20px;
+    text-align: left;
+  }
+
+  .compare-table thead th:not(:first-child) {
+    text-align: right;
+  }
+
+  .compare-table tbody tr {
+    border-bottom: 1px solid rgba(107,26,26,0.06);
+    transition: background 0.15s;
+  }
+
+  .compare-table tbody tr:hover {
+    background: rgba(107,26,26,0.03);
+  }
+
+  .compare-table tbody tr.highlight-row {
+    background: rgba(107,26,26,0.05);
+  }
+
+  .compare-table tbody td {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    padding: 16px 20px;
+    color: var(--noche);
+  }
+
+  .compare-table tbody td:not(:first-child) {
+    text-align: right;
+    font-family: 'Cinzel', serif;
+  }
+
+  .campaign-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .campaign-name.current {
+    font-weight: 700;
+    color: var(--rojo);
+  }
+
+  .cell-green { color: var(--verde) !important; }
+  .cell-red { color: var(--rojo) !important; }
+
+  .efficiency-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── BUDGET RECONCILE ── */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .budget-item {
+    border-radius: 2px;
+    padding: 24px;
+  }
+
+  .budget-item.charged {
+    background: rgba(28,61,130,0.08);
+    border: 1px solid rgba(28,61,130,0.2);
+  }
+
+  .budget-item.consumed {
+    background: rgba(107,26,26,0.08);
+    border: 1px solid rgba(107,26,26,0.2);
+  }
+
+  .budget-item.balance {
+    background: rgba(74,88,48,0.08);
+    border: 1px solid rgba(74,88,48,0.2);
+  }
+
+  .budget-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .budget-item.charged .budget-label { color: var(--azul); }
+  .budget-item.consumed .budget-label { color: var(--rojo); }
+  .budget-item.balance .budget-label { color: var(--verde); }
+
+  .budget-amount {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--noche);
+    line-height: 1;
+  }
+
+  .budget-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--cerro);
+    margin-top: 8px;
+  }
+
+  /* ── RECOMMENDATIONS ── */
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .rec-card {
+    background: var(--cal-dark);
+    border: 1px solid rgba(107,26,26,0.12);
+    border-radius: 2px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rec-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--rojo);
+  }
+
+  .rec-num {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--rojo);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+  }
+
+  .rec-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--noche);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .rec-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--cerro);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--noche);
+    padding: 28px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid var(--rojo);
+  }
+
+  .footer-brand {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--cal);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-agency {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cerro);
+  }
+
+  .footer-agency span {
+    color: var(--oro);
+  }
+
+  /* ── INSIGHT BOX ── */
+  .insight-box {
+    background: var(--rojo);
+    border-radius: 2px;
+    padding: 24px 28px;
+    margin-top: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .insight-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: rgba(240,236,224,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .insight-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--cal);
+    line-height: 1.6;
+  }
+
+  .insight-text strong {
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .header-inner { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+    .header-meta { text-align: left; }
+    .hero { padding: 36px 24px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 40px 24px; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .budget-grid { grid-template-columns: 1fr; }
+    .rec-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 10px; align-items: flex-start; padding: 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .kpi-grid { grid-template-columns: 1fr; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .kpi-value { font-size: 32px; }
+  }
+
+  /* Animate bars on load */
+  .animate-bar { width: 0 !important; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-stripe"></div>
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="brand-eyebrow">Informe de Resultados · Campaña Pagada</div>
+      <div class="brand-name">Montesierpe Casa Hacienda</div>
+      <div class="brand-sub">Km. 33, Vía Los Libertadores — Valle de Pisco, Perú</div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-label">Período analizado</div>
+      <div class="meta-period">28 Mayo — 08 Junio 2026</div>
+      <div class="meta-platform">
+        <!-- Meta icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.5 7.5c.828 0 1.5.672 1.5 1.5v3c0 .828-.672 1.5-1.5 1.5S15 14.828 15 14v-3c0-.828.672-1.5 1.5-1.5zm-9 0c.828 0 1.5.672 1.5 1.5v3c0 .828-.672 1.5-1.5 1.5S6 14.828 6 14v-3c0-.828.672-1.5 1.5-1.5zm4.5 0c.828 0 1.5.672 1.5 1.5v3c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5v-3c0-.828.672-1.5 1.5-1.5z" fill="#9A7C50"/>
+        </svg>
+        <span>Meta Ads</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO KPIs -->
+<div class="hero">
+  <div class="hero-label">Indicadores Principales de Campaña</div>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-eyebrow">Conversaciones WhatsApp</div>
+      <div class="kpi-value">201</div>
+      <div class="kpi-desc">Oportunidades de contacto directo con potenciales visitantes</div>
+      <div class="kpi-badge">Objetivo alcanzado</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-eyebrow">Costo por Conversación</div>
+      <div class="kpi-value">S/<span class="kpi-unit">0.73</span></div>
+      <div class="kpi-desc">Por debajo del umbral de S/1.00 considerado competitivo en turismo</div>
+      <div class="kpi-badge">Muy eficiente</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-eyebrow">CTR de Campaña</div>
+      <div class="kpi-value">14.54<span class="kpi-unit">%</span></div>
+      <div class="kpi-desc">Más de 4× por encima del benchmark de excelencia del sector</div>
+      <div class="kpi-badge">Excepcional</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-eyebrow">Alcance Total</div>
+      <div class="kpi-value">12.4<span class="kpi-unit">K</span></div>
+      <div class="kpi-desc">Personas únicas impactadas, con frecuencia saludable de 1.76×</div>
+      <div class="kpi-badge">Sin saturación</div>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+</div>
+
+<!-- SECTION 1: GASTO Y CONTROL PRESUPUESTAL -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title">Control y Ejecución del Presupuesto</span>
+  </div>
+
+  <div class="budget-grid" style="margin-bottom: 24px;">
+    <div class="budget-item charged">
+      <div class="budget-label">Presupuesto Cargado</div>
+      <div class="budget-amount">S/ 150.00</div>
+      <div class="budget-desc">Inversión total asignada a la campaña</div>
+    </div>
+    <div class="budget-item consumed">
+      <div class="budget-label">Gasto Real (Meta)</div>
+      <div class="budget-amount">S/ 146.32</div>
+      <div class="budget-desc">Promedio diario efectivo: S/ 13.30 vs. objetivo S/ 15</div>
+    </div>
+    <div class="budget-item balance">
+      <div class="budget-label">Saldo No Consumido</div>
+      <div class="budget-amount">S/ 3.68</div>
+      <div class="budget-desc">Retorno automático al cierre de campaña</div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-title">Distribución Diaria del Gasto — Mayo 28 a Junio 09, 2026</div>
+    <canvas id="spendChart"></canvas>
+    <div class="chart-note">* Los días 28 de mayo y 09 de junio corresponden a días parciales de activación y cierre.</div>
+  </div>
+</section>
+
+<!-- SECTION 2: CALIDAD DEL TRÁFICO -->
+<section class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title">Calidad del Tráfico y Rendimiento del Contenido</span>
+  </div>
+
+  <div class="metrics-grid" style="margin-bottom: 16px;">
+    <div class="metric-card">
+      <div class="metric-label">Impresiones totales</div>
+      <div class="metric-value">21,904</div>
+      <div class="metric-sub">Visualizaciones del anuncio en el período</div>
+      <div class="metric-bar-wrap">
+        <div class="metric-bar animate-bar" data-width="72" style="background: var(--azul);"></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Clics en Enlace</div>
+      <div class="metric-value">1,324</div>
+      <div class="metric-sub">Acciones directas hacia WhatsApp</div>
+      <div class="metric-bar-wrap">
+        <div class="metric-bar animate-bar" data-width="88" style="background: var(--rojo);"></div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">CPM</div>
+      <div class="metric-value">S/ 6.68</div>
+      <div class="metric-sub">Costo por cada 1,000 impresiones</div>
+      <div class="metric-bar-wrap">
+        <div class="metric-bar animate-bar" data-width="42" style="background: var(--oro);"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics-grid" style="grid-template-columns: 1fr 1fr;">
+    <div class="metric-card" style="grid-column: 1;">
+      <div class="metric-label">Frecuencia</div>
+      <div class="metric-value">1.76×</div>
+      <div class="metric-sub">Veces promedio que cada persona vio el anuncio. Rango óptimo sin saturación.</div>
+    </div>
+    <div class="benchmark-card" style="grid-column: 2;">
+      <div class="benchmark-title">CTR — Comparativo vs. Benchmarks del Sector Turismo</div>
+      <div class="benchmark-row">
+        <span class="benchmark-label">Promedio sector</span>
+        <div class="benchmark-bar-wrap">
+          <div class="benchmark-bar avg animate-bar" data-width="14"></div>
+        </div>
+        <span class="benchmark-pct">1–3%</span>
+      </div>
+      <div class="benchmark-row">
+        <span class="benchmark-label">Resultado bueno</span>
+        <div class="benchmark-bar-wrap">
+          <div class="benchmark-bar good animate-bar" data-width="27"></div>
+        </div>
+        <span class="benchmark-pct">3–5%</span>
+      </div>
+      <div class="benchmark-row">
+        <span class="benchmark-label">Excelente</span>
+        <div class="benchmark-bar-wrap">
+          <div class="benchmark-bar excellent animate-bar" data-width="34"></div>
+        </div>
+        <span class="benchmark-pct">&gt;5%</span>
+      </div>
+      <div class="benchmark-row">
+        <span class="benchmark-label" style="color:var(--rojo); font-weight:600;">Montesierpe</span>
+        <div class="benchmark-bar-wrap">
+          <div class="benchmark-bar montesierpe animate-bar" data-width="100"></div>
+        </div>
+        <span class="benchmark-pct highlight">14.54%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-box" style="margin-top: 16px;">
+    <div class="insight-icon">✦</div>
+    <div class="insight-text">
+      Un CTR de <strong>14.54%</strong> indica que el contenido no solo fue visible, sino que generó una respuesta activa y consistente en la audiencia. Esta cifra sugiere una alta afinidad entre el mensaje de Montesierpe y los intereses del segmento impactado — un activo creativo que debe preservarse y optimizarse en las próximas pautas.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: GEOGRAFÍA Y DEMOGRAFÍA -->
+<section class="section section-dark">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title">Perfil del Público Alcanzado</span>
+  </div>
+
+  <div class="two-col">
+    <div class="geo-card">
+      <div class="card-title">Distribución Geográfica — Alcance por Región</div>
+
+      <div class="geo-row">
+        <span class="geo-region">Lima</span>
+        <div class="geo-bar-wrap">
+          <div class="geo-bar animate-bar" data-width="100"></div>
+        </div>
+        <span class="geo-count">9,475</span>
+        <span class="geo-pct">75.9%</span>
+      </div>
+      <div class="geo-row">
+        <span class="geo-region">Ica</span>
+        <div class="geo-bar-wrap">
+          <div class="geo-bar animate-bar" data-width="28" style="background: linear-gradient(90deg, var(--oro), var(--cerro));"></div>
+        </div>
+        <span class="geo-count">2,711</span>
+        <span class="geo-pct">21.7%</span>
+      </div>
+      <div class="geo-row">
+        <span class="geo-region">Callao</span>
+        <div class="geo-bar-wrap">
+          <div class="geo-bar animate-bar" data-width="4" style="background: var(--cerro);"></div>
+        </div>
+        <span class="geo-count">354</span>
+        <span class="geo-pct">2.8%</span>
+      </div>
+
+      <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(240,236,224,0.1);">
+        <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--cerro); line-height: 1.6;">
+          Lima Metropolitana representa el principal mercado emisor de turismo de proximidad hacia el Valle de Pisco. La distribución obtenida es consistente con el perfil de escapada de fin de semana.
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="card-title">Perfil Demográfico — Segmentos con Mayor Respuesta</div>
+
+      <div class="demo-row">
+        <span class="demo-age">65+</span>
+        <div class="demo-bar-wrap">
+          <div class="demo-bar top animate-bar" data-width="100"></div>
+        </div>
+        <span class="demo-note">★ Mayor alcance</span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-age">55–64</span>
+        <div class="demo-bar-wrap">
+          <div class="demo-bar top animate-bar" data-width="84"></div>
+        </div>
+        <span class="demo-note">★ Alto volumen</span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-age">45–54</span>
+        <div class="demo-bar-wrap">
+          <div class="demo-bar mid animate-bar" data-width="65"></div>
+        </div>
+        <span class="demo-note"></span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-age">35–44</span>
+        <div class="demo-bar-wrap">
+          <div class="demo-bar low animate-bar" data-width="42"></div>
+        </div>
+        <span class="demo-note"></span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-age">25–34</span>
+        <div class="demo-bar-wrap">
+          <div class="demo-bar low animate-bar" data-width="24"></div>
+        </div>
+        <span class="demo-note"></span>
+      </div>
+
+      <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(240,236,224,0.1);">
+        <div style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--cerro); line-height: 1.6;">
+          Los segmentos de 45 años en adelante concentran la mayor intención de visita: públicos que buscan experiencias culturales, espacios tranquilos y propuestas gastronómicas de valor. Mayor capacidad de gasto y menor sensibilidad al precio.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: COMPARATIVO HISTÓRICO -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">Comparativo Histórico de Campañas</span>
+  </div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th>Conversaciones</th>
+        <th>Costo por Conversación</th>
+        <th>Eficiencia relativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="campaign-name">Campaña 2</span></td>
+        <td>163</td>
+        <td class="cell-green">S/ 0.62</td>
+        <td>
+          <div style="display:flex; align-items:center; justify-content:flex-end; gap:6px;">
+            <div style="width:80px; height:5px; background:var(--cal-dark); border-radius:1px; overflow:hidden;">
+              <div style="width:100%; height:100%; background:var(--verde); border-radius:1px;"></div>
+            </div>
+            <span style="font-size:11px; color:var(--cerro); font-family:'Montserrat', sans-serif;">Mejor histórico</span>
+          </div>
+        </td>
+      </tr>
+      <tr class="highlight-row">
+        <td><span class="campaign-name current">Campaña 5+6 (Actual)</span></td>
+        <td style="color:var(--rojo); font-weight:700;">201</td>
+        <td>S/ 0.73</td>
+        <td>
+          <div style="display:flex; align-items:center; justify-content:flex-end; gap:6px;">
+            <div style="width:80px; height:5px; background:var(--cal-dark); border-radius:1px; overflow:hidden;">
+              <div style="width:85%; height:100%; background:var(--rojo); border-radius:1px;"></div>
+            </div>
+            <span style="font-size:11px; color:var(--rojo); font-family:'Montserrat', sans-serif; font-weight:600;">Campaña actual</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="campaign-name">Campaña 5 (individual)</span></td>
+        <td>23</td>
+        <td class="cell-red">S/ 1.22</td>
+        <td>
+          <div style="display:flex; align-items:center; justify-content:flex-end; gap:6px;">
+            <div style="width:80px; height:5px; background:var(--cal-dark); border-radius:1px; overflow:hidden;">
+              <div style="width:51%; height:100%; background:var(--cerro); border-radius:1px;"></div>
+            </div>
+            <span style="font-size:11px; color:var(--cerro); font-family:'Montserrat', sans-serif;">—</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="campaign-name">Campaña 6 (individual)</span></td>
+        <td>15</td>
+        <td class="cell-red">S/ 1.13</td>
+        <td>
+          <div style="display:flex; align-items:center; justify-content:flex-end; gap:6px;">
+            <div style="width:80px; height:5px; background:var(--cal-dark); border-radius:1px; overflow:hidden;">
+              <div style="width:55%; height:100%; background:var(--cerro); border-radius:1px;"></div>
+            </div>
+            <span style="font-size:11px; color:var(--cerro); font-family:'Montserrat', sans-serif;">—</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box" style="background: var(--noche); border: 1px solid rgba(154,124,80,0.2);">
+    <div class="insight-icon">✦</div>
+    <div class="insight-text">
+      La campaña consolidada 5+6 logra el <strong>mayor volumen de conversaciones</strong> de todo el historial registrado (201), manteniendo un costo por conversación de S/ 0.73 — muy próximo al mejor resultado absoluto de S/ 0.62. La combinación de mayor alcance y eficiencia sostenida marca un hito operativo importante.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: RECOMENDACIONES -->
+<section class="section section-alt">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title">Recomendaciones Estratégicas — Próxima Fase</span>
+  </div>
+
+  <div class="rec-grid">
+    <div class="rec-card">
+      <div class="rec-num">REC · 01</div>
+      <div class="rec-title">Mantener objetivo de conversaciones por WhatsApp</div>
+      <div class="rec-body">El canal ha demostrado ser altamente eficiente como primer punto de contacto. No se recomienda migrar el objetivo de campaña hasta tener un volumen mayor de datos de conversión a visita efectiva.</div>
+    </div>
+    <div class="rec-card">
+      <div class="rec-num">REC · 02</div>
+      <div class="rec-title">Incremento progresivo de inversión diaria</div>
+      <div class="rec-body">Escalar el presupuesto diario de S/ 15 a un rango de S/ 20–25, manteniendo las segmentaciones actuales que han demostrado eficiencia comprobada. El incremento debe ser gradual para preservar el aprendizaje del algoritmo.</div>
+    </div>
+    <div class="rec-card">
+      <div class="rec-num">REC · 03</div>
+      <div class="rec-title">Campañas segmentadas por perfil prioritario</div>
+      <div class="rec-body">Crear conjuntos de anuncios específicos para Lima Metropolitana + público 45–54 años y 55+ años. El dato demográfico confirma que estos segmentos presentan mayor intención de visita y mayor capacidad de gasto.</div>
+    </div>
+    <div class="rec-card">
+      <div class="rec-num">REC · 04</div>
+      <div class="rec-title">Implementar seguimiento de conversión post-contacto</div>
+      <div class="rec-body">El principal reto ya no es generar conversaciones —está probado que se pueden conseguir a bajo costo— sino medir cuántas de esas 201 oportunidades terminaron en visita efectiva. Implementar un sistema de seguimiento comercial en WhatsApp es el próximo paso crítico.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Montesierpe Casa Hacienda · Informe Meta Ads · Junio 2026</div>
+  <div class="footer-agency">Elaborado por <span>Hineni Strategy Agency</span></div>
+</footer>
+
+<script>
+// ── CHART: Gasto diario ──────────────────────────────────────
+const spendData = [
+  { date: '28 May', spend: 0.18 },
+  { date: '29 May', spend: 9.37 },
+  { date: '30 May', spend: 17.44 },
+  { date: '31 May', spend: 10.21 },
+  { date: '01 Jun', spend: 15.50 },
+  { date: '02 Jun', spend: 16.20 },
+  { date: '03 Jun', spend: 15.03 },
+  { date: '04 Jun', spend: 14.38 },
+  { date: '05 Jun', spend: 13.98 },
+  { date: '06 Jun', spend: 15.57 },
+  { date: '07 Jun', spend: 13.95 },
+  { date: '08 Jun', spend: 8.15 },
+  { date: '09 Jun', spend: 0.18 },
+];
+
+const canvas = document.getElementById('spendChart');
+const ctx = canvas.getContext('2d');
+
+function drawChart() {
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = 200 * dpr;
+  ctx.scale(dpr, dpr);
+
+  const W = rect.width;
+  const H = 200;
+  const padL = 44, padR = 16, padT = 16, padB = 40;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+  const maxVal = 20;
+  const avgLine = 13.30;
+
+  // Grid lines
+  ctx.strokeStyle = 'rgba(107,26,26,0.08)';
+  ctx.lineWidth = 1;
+  [0, 5, 10, 15, 20].forEach(v => {
+    const y = padT + chartH - (v / maxVal) * chartH;
+    ctx.beginPath();
+    ctx.moveTo(padL, y);
+    ctx.lineTo(padL + chartW, y);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(138,120,96,0.7)';
+    ctx.font = '9px Montserrat, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText('S/' + v, padL - 6, y + 3.5);
+  });
+
+  // Average line
+  const avgY = padT + chartH - (avgLine / maxVal) * chartH;
+  ctx.strokeStyle = 'rgba(154,124,80,0.5)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.moveTo(padL, avgY);
+  ctx.lineTo(padL + chartW, avgY);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(154,124,80,0.85)';
+  ctx.font = '9px Montserrat, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('Promedio S/13.30', padL + 6, avgY - 5);
+
+  // Area path
+  const pts = spendData.map((d, i) => ({
+    x: padL + (i / (spendData.length - 1)) * chartW,
+    y: padT + chartH - (d.spend / maxVal) * chartH
+  }));
+
+  const grad = ctx.createLinearGradient(0, padT, 0, padT + chartH);
+  grad.addColorStop(0, 'rgba(107,26,26,0.18)');
+  grad.addColorStop(1, 'rgba(107,26,26,0.01)');
+
+  ctx.beginPath();
+  ctx.moveTo(pts[0].x, padT + chartH);
+  pts.forEach(p => ctx.lineTo(p.x, p.y));
+  ctx.lineTo(pts[pts.length-1].x, padT + chartH);
+  ctx.closePath();
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Line
+  ctx.beginPath();
+  ctx.strokeStyle = '#6B1A1A';
+  ctx.lineWidth = 2;
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+  ctx.stroke();
+
+  // Dots + labels
+  pts.forEach((p, i) => {
+    const d = spendData[i];
+    // dot
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, d.spend < 1 ? 2.5 : 4, 0, Math.PI * 2);
+    ctx.fillStyle = d.spend > 15 ? '#9A7C50' : '#6B1A1A';
+    ctx.fill();
+    ctx.strokeStyle = '#F0ECE0';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // date label
+    ctx.fillStyle = 'rgba(138,120,96,0.8)';
+    ctx.font = '8.5px Montserrat, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(d.date, p.x, H - 10);
+
+    // value label on high points
+    if (d.spend >= 14) {
+      ctx.fillStyle = '#6B1A1A';
+      ctx.font = '8px Montserrat, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('S/'+d.spend.toFixed(2), p.x, p.y - 10);
+    }
+  });
+}
+
+window.addEventListener('load', drawChart);
+window.addEventListener('resize', drawChart);
+
+// ── ANIMATE BARS ──────────────────────────────────────────────
+function animateBars() {
+  document.querySelectorAll('.animate-bar').forEach(bar => {
+    const targetWidth = bar.dataset.width || 0;
+    setTimeout(() => {
+      bar.style.transition = 'width 1.2s cubic-bezier(0.4,0,0.2,1)';
+      bar.style.width = targetWidth + '%';
+    }, 200);
+  });
+}
+
+// IntersectionObserver for bar animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateBars();
+      observer.disconnect();
+    }
+  });
+}, { threshold: 0.1 });
+
+const firstBar = document.querySelector('.animate-bar');
+if (firstBar) observer.observe(firstBar);
+</script>
+</body>
+</html>
